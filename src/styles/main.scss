@@ -52,12 +52,14 @@ body {
     }
   }
 
-  @each $day in $start-days {
+@each $day in $start-day {
     &--start-#{$day} {
       .calendar__day:first-child {
-        margin-left: (list.index($start-days, $day) - 1) * ($cell-size + $gap);
+        margin-left: ($cell-size + $gap) * $index;
       }
     }
+
+    $index: $index + 1;
   }
 
   @for $l from 28 through 31 {
